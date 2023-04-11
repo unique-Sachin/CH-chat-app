@@ -30,7 +30,7 @@ const server = app.listen(process.env.PORT);
 const io = require("socket.io")(server, {
   pingTimeout: 60000,
   cors: {
-    origin: "https://lucky-nasturtium-2f67e1.netlify.app",
+    origin: "https://aesthetic-mochi-57bcc8.netlify.app",
   },
 });
 
