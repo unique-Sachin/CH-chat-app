@@ -30,7 +30,7 @@ const server = app.listen(process.env.PORT);
 const io = require("socket.io")(server, {
   pingTimeout: 60000,
   cors: {
-    origin: "https://sandesh-chat-app-unique-sachin.vercel.app/",
+    origin: "https://sandesh-chat.vercel.app",
   },
 });
 
