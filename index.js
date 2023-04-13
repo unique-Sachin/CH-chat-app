@@ -9,8 +9,6 @@ const authMiddleware = require("./middlewares/authMiddleware");
 const app = require("express")();
 require("dotenv").config();
 
-connection();
-
 app.use(cors());
 
 app.use(json());
@@ -25,7 +23,9 @@ app.use("/api/message", authMiddleware, messageRouter);
 
 app.use(notFoundMiddleware);
 
-app.listen(process.env.PORT);
+app.listen(process.env.PORT, async () => {
+  connection();
+});
 
 // const io = require("socket.io")(server, {
 //   pingTimeout: 60000,
