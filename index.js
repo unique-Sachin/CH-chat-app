@@ -7,6 +7,7 @@ const chatRouter = require("./routes/chat.routes");
 const messageRouter = require("./routes/message.routes");
 const authMiddleware = require("./middlewares/authMiddleware");
 const app = require("express")();
+const path = require("path");
 require("dotenv").config();
 
 connection();
@@ -23,6 +24,20 @@ app.use("/api", userRouter);
 app.use("/api/chat", chatRouter);
 app.use("/api/message", authMiddleware, messageRouter);
 
+const __dirname1 = path.resolve();
+
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname1, "/frontend/build")));
+
+  app.get("*", (req, res) =>
+    res.sendFile(path.resolve(__dirname1, "frontend", "build", "index.html"))
+  );
+} else {
+  app.get("/", (req, res) => {
+    res.send("API is running..");
+  });
+}
+
 app.use(notFoundMiddleware);
 
 const server = app.listen(process.env.PORT);
@@ -35,7 +50,6 @@ const io = require("socket.io")(server, {
 });
 
 io.on("connection", (socket) => {
-  console.log("connected to socket");
   socket.on("setup", (userData) => {
     socket.join(userData.id);
     socket.emit("connected");
