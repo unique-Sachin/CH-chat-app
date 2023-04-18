@@ -14,7 +14,7 @@ app.use(json());
 
 const io = require("socket.io")(server, {
   cors: {
-    origin: "https://sandesh-chat.vercel.app",
+    origin: "https://ch-chat-app.vercel.app",
     methods: ["GET", "POST"],
   },
 });
