@@ -1,0 +1,44 @@
+.main__container {
+  width: 6.5%;
+}
+.logo,
+.profile__container {
+  height: 13%;
+  display: flex;
+  justify-content: center;
+  color: var(--icons-bg-color);
+  align-items: center;
+}
+
+.logo > p {
+  font-size: 45px;
+  font-family: "Play", sans-serif;
+  font-weight: 700;
+}
+
+.navigation__container {
+  height: 63%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.profile__container {
+  height: 20%;
+}
+
+.navigation {
+  color: var(--icons-bg-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 15px 0;
+}
+.navigation > p {
+  font-size: 12px;
+  margin: 5px 0;
+  cursor: pointer;
+}
+.icons {
+  font-size: 20px;
+  cursor: pointer;
+}

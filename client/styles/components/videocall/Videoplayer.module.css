@@ -1,0 +1,11 @@
+.main__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.my__video,
+.user__video {
+  border: 1px solid red;
+  height: 200px;
+}

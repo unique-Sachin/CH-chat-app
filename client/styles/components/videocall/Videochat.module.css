@@ -1,0 +1,10 @@
+.main__container {
+  position: absolute;
+  width: 100vw;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  background-color: var(--bg-color-secondary);
+  text-align: center;
+  padding: 20px;
+}

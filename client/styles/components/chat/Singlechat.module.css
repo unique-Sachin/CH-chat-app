@@ -1,0 +1,70 @@
+.main__container {
+  width: 65%;
+  height: 100vh;
+}
+
+.chat__header {
+  padding: 10px;
+  height: 10%;
+  text-transform: capitalize;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--color-white);
+  display: flex;
+  align-items: flex-end;
+}
+.chat__header > div {
+  width: 50%;
+}
+.chat__user__container {
+  padding-left: 20px;
+}
+.chat__controls {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  font-size: 22px;
+}
+.chat__controls > * {
+  cursor: pointer;
+  color: var(--icons-bg-color);
+  transition: 0.2s ease-in;
+}
+.chat__controls > *:hover {
+  cursor: pointer;
+  color: var(--color-white);
+}
+.chat__box__container {
+  padding: 0 20px;
+  height: 89%;
+}
+.chat__messages,
+.chat__loading {
+  padding: 5px 10px 0 10px;
+  color: white;
+  height: 91%;
+}
+
+.chat__loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 60px;
+}
+.input__container {
+  padding: 10px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+}
+.input__container > :first-child {
+  color: var(--icons-bg-color);
+  cursor: pointer;
+  font-size: 20px;
+}
+.input__container > input {
+  padding: 5px 10px;
+  width: 80%;
+  background-color: transparent;
+  outline: none;
+}

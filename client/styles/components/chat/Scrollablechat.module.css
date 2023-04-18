@@ -1,0 +1,12 @@
+.main__container {
+  height: 100%;
+  overflow-y: scroll;
+}
+.single__chat {
+  display: flex;
+  margin: 6px 0;
+}
+.single__chat > img {
+  border-radius: 10px;
+  margin-right: 10px;
+}

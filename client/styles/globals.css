@@ -1,0 +1,32 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600&family=Play:wght@700&display=swap");
+
+:root {
+  --bg-color-secondary: #202329;
+  --bg-color-primary: #131313;
+  --chat-color-primary: #6a8df9;
+  --chat-color-secondary: #2e343d;
+  --icons-bg-color: #a9aeba;
+  --color-white: #ffffff;
+}
+
+div::-webkit-scrollbar {
+  display: none;
+}
+div {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+}
+input {
+  color: var(--color-white);
+}
+input::placeholder {
+  color: var(--icons-bg-color);
+}
