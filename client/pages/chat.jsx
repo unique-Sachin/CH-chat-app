@@ -6,6 +6,7 @@ import axios from "axios";
 import { useSelector } from "react-redux";
 import { useRouter } from "next/router";
 import SingleChat from "../components/chat/SingleChat";
+import SocketWarning from "../components/modals/SocketWarning";
 
 const Chat = () => {
   const { user } = useSelector((state) => state);
@@ -23,6 +24,7 @@ const Chat = () => {
     user?.token && (
       <div className={styles.main__container}>
         <Navbar />
+        <SocketWarning />
         <div className={styles.chat__container}>
           <MyChats />
           <SingleChat />

@@ -70,6 +70,7 @@ const Signup = () => {
       <FormControl isRequired>
         <FormLabel>Name</FormLabel>
         <Input
+          color={"black"}
           value={input.name}
           onChange={(e) => setInput({ ...input, name: e.target.value })}
           type="text"
@@ -79,6 +80,7 @@ const Signup = () => {
       <FormControl isRequired>
         <FormLabel>Email</FormLabel>
         <Input
+          color={"black"}
           value={input.email}
           onChange={(e) => setInput({ ...input, email: e.target.value })}
           type="email"
@@ -89,6 +91,7 @@ const Signup = () => {
         <FormLabel>Password</FormLabel>
         <InputGroup>
           <Input
+            color={"black"}
             value={input.password}
             onChange={(e) => setInput({ ...input, password: e.target.value })}
             type={show ? "text" : "password"}

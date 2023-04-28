@@ -70,6 +70,7 @@ const Login = () => {
       <FormControl isRequired my={5}>
         <FormLabel>Email</FormLabel>
         <Input
+          color={"black"}
           value={input.email}
           onChange={(e) => setInput({ ...input, email: e.target.value })}
           type="email"
@@ -80,6 +81,7 @@ const Login = () => {
         <FormLabel>Password</FormLabel>
         <InputGroup>
           <Input
+            color={"black"}
             value={input.password}
             onChange={(e) => setInput({ ...input, password: e.target.value })}
             type={show ? "text" : "password"}

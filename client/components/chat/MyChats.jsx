@@ -24,9 +24,6 @@ const MyChats = () => {
         `https://sandesh-app-server.adaptable.app/api/chat`
       );
       dispatch(setChats(data));
-      if (data.length) {
-        dispatch(setSelectedChat(data[0]));
-      }
     } catch (error) {
       console.log(error);
       toast({

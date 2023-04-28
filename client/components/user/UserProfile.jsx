@@ -1,12 +1,5 @@
 import { BellIcon } from "@chakra-ui/icons";
-import {
-  Avatar,
-  Button,
-  Menu,
-  MenuButton,
-  MenuItem,
-  MenuList,
-} from "@chakra-ui/react";
+import { Menu, MenuButton, MenuItem, MenuList } from "@chakra-ui/react";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import ProfileModal from "../modals/ProfileModal";
@@ -62,6 +55,8 @@ const UserProfile = () => {
           {!chatNotification.length && "No new Messages"}
           {chatNotification?.map((el) => (
             <MenuItem
+              color={"var(--color-white)"}
+              bg={"var(--bg-color-secondary)"}
               key={el._id}
               onClick={() => {
                 dispatch(setSelectedChat(el));
