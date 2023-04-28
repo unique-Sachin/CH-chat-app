@@ -7,17 +7,9 @@ const chatRouter = require("./routes/chat.routes");
 const messageRouter = require("./routes/message.routes");
 const authMiddleware = require("./middlewares/authMiddleware");
 const app = require("express")();
-const server = require("http").createServer(app);
 require("dotenv").config();
 app.use(cors());
 app.use(json());
-
-const io = require("socket.io")(server, {
-  cors: {
-    origin: "https://ch-chat-app.vercel.app",
-    methods: ["GET", "POST"],
-  },
-});
 
 app.get("/", (req, res) => {
   res.send("Server is Running");
@@ -26,8 +18,17 @@ app.get("/", (req, res) => {
 app.use("/api", userRouter);
 app.use("/api/chat", chatRouter);
 app.use("/api/message", authMiddleware, messageRouter);
-
 app.use(notFoundMiddleware);
+
+const server = app.listen(process.env.PORT, async () => {
+  connection();
+});
+
+const io = require("socket.io")(server, {
+  cors: {
+    origin: "https://ch-chat-app.vercel.app",
+  },
+});
 
 io.on("connection", (socket) => {
   //* this socket is for video stream till line 46 after that is for messages
@@ -75,8 +76,4 @@ io.on("connection", (socket) => {
     console.log("disconnected");
     socket.leave(userData.id);
   });
-});
-
-server.listen(process.env.PORT, async () => {
-  connection();
 });
