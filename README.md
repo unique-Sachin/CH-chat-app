@@ -1,7 +1,5 @@
 # CH Chat - Real-Time Messaging Web App
 
-![CH Chat Logo](https://example.com/ch-chat-logo.png)
-
 CH Chat is a real-time messaging web application that offers a seamless and efficient communication experience for individuals and groups. It's designed to keep you connected with your friends, family, and colleagues, providing instant messaging, group chat capabilities, and a notification system to ensure you never miss a message.
 
 ## Key Features
