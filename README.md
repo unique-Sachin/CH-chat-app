@@ -54,7 +54,7 @@ Contributing
 We welcome contributions from the community to make CH Chat even better. If you'd like to contribute, please follow our contribution guidelines.
 
 Support
-If you encounter any issues, have questions, or need assistance, please reach out to our support team at support@chchatapp.com.
+If you encounter any issues, have questions, or need assistance, please reach out to our support team at sachin.mern@gmail.com.
 
 License
 CH Chat is released under the MIT License. You are free to use and modify the code as needed.
