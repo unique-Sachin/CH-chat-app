@@ -18,6 +18,7 @@
   background-color: var(--chat-color-secondary);
 
 }
+
 .chat__header > div {
   width: 50%;
 }
