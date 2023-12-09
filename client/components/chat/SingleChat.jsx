@@ -176,14 +176,10 @@ const SingleChat = () => {
             </div>
           ) : (
             <div className={styles.chat__messages}>
-              <ScrollableChat messages={messages} />
+              <ScrollableChat messages={messages} isTyping={isTyping} />
             </div>
           )}
-          {isTyping ? (
-            <div>{/* typing gif required  */}typing...</div>
-          ) : (
-            <></>
-          )}
+
           <div className={styles.input__container}>
             <ImAttachment />
             <input

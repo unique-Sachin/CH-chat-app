@@ -4,7 +4,7 @@ import styles from "../../styles/components/chat/Scrollablechat.module.css";
 import Image from "next/image";
 import ScrollableFeed from "react-scrollable-feed";
 
-const ScrollableChat = ({ messages }) => {
+const ScrollableChat = ({ messages, isTyping }) => {
   const { user } = useSelector((state) => state);
   const isSameSender = (messages, el, i, userId) => {
     return (
@@ -47,35 +47,44 @@ const ScrollableChat = ({ messages }) => {
   return (
     <div className={styles.main__container}>
       <ScrollableFeed>
-        {messages?.map((el, i) => (
-          <div className={styles.single__chat} key={el._id}>
-            {(isSameSender(messages, el, i, user.id) ||
-              isLastMessage(messages, i, user.id)) && (
-              <Image
-                src={el.sender.avatar}
-                width={40}
-                height={40}
-                alt={el.sender.name}
-              />
-            )}
-            <span
-              style={{
-                color: "var(--color-white)",
-                backgroundColor:
-                  el.sender._id === user.id
-                    ? "var(--chat-color-primary)"
-                    : "var(--chat-color-secondary)",
-                borderRadius: "10px",
-                padding: "5px 15px",
-                maxWidth: "75%",
-                marginLeft: isSameSenderMargin(messages, el, i, user.id),
-                marginTop: isSameUser(messages, el, i) ? 3 : 10,
-              }}
-            >
-              {el.content}
-            </span>
-          </div>
-        ))}
+        <>
+          {messages?.map((el, i) => (
+            <div className={styles.single__chat} key={el._id}>
+              {(isSameSender(messages, el, i, user.id) ||
+                isLastMessage(messages, i, user.id)) && (
+                <Image
+                  src={el.sender.avatar}
+                  width={40}
+                  height={40}
+                  alt={el.sender.name}
+                />
+              )}
+              <span
+                style={{
+                  color: "var(--color-white)",
+                  backgroundColor:
+                    el.sender._id === user.id
+                      ? "var(--chat-color-primary)"
+                      : "var(--chat-color-secondary)",
+                  borderRadius: "10px",
+                  padding: "5px 15px",
+                  maxWidth: "75%",
+                  marginLeft: isSameSenderMargin(messages, el, i, user.id),
+                  marginTop: isSameUser(messages, el, i) ? 3 : 10,
+                }}
+              >
+                {el.content}
+              </span>
+            </div>
+          ))}
+          {isTyping ? (
+            <div className={styles.typing}>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          ) : null}
+        </>
       </ScrollableFeed>
     </div>
   );
