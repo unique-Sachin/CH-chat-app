@@ -1,23 +1,51 @@
 .main_container {
-  width: 35%;
-  height: 100%;
+  /* border: 1px solid red; */
+  width: 30%;
+  height: 100vh;
   padding: 20px;
+  /* overflow-y: scroll; */
+  
 }
 .search__box {
-  height: 10%;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
+  /* border: 1px solid red; */
+  height: 60px;
+
 }
 .search__box > input {
-  width: 93%;
+  width: 100%;
   background-color: var(--chat-color-secondary);
   padding: 10px;
   border-radius: 10px;
   outline: none;
 }
 
+.all__chats{
+  /* border: 1px solid red; */
+  overflow-y: scroll;
+  height: calc(100% - 60px);
+}
+
+.all__chats::-webkit-scrollbar {
+  width: 7px;
+  display: block;
+}
+
+.all__chats::-webkit-scrollbar-track {
+  background: var(--chat-color-secondary);
+}
+
+.all__chats::-webkit-scrollbar-thumb {
+  background: var(--icons-bg-color);
+  border-radius: 10px;
+}
+
+.all__chats::-webkit-scrollbar-thumb:hover {
+  background: var(--color-white);
+}
+
 .single__chat {
+  /* border: 1px solid red; */
+  width: 90%;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -27,7 +55,7 @@
   -webkit-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  margin: 2px 0;
+  margin: 5px 0;
 }
 .single__chat:hover {
   background: var(--chat-color-secondary);
