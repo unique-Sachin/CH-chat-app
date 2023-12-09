@@ -50,7 +50,7 @@ const Signup = () => {
           gender: input.gender,
         };
         const res = await axios.post(
-          `https://sandesh-app-server.adaptable.app/api/register`,
+          `https://ch-chat-app-production.up.railway.app/api/register`,
           value
         );
         setLoading(false);

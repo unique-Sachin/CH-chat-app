@@ -48,7 +48,7 @@ const Login = () => {
           password: input.password,
         };
         const res = await axios.post(
-          `https://sandesh-app-server.adaptable.app/api/login`,
+          `https://ch-chat-app-production.up.railway.app/api/login`,
           value
         );
         setLoading(false);

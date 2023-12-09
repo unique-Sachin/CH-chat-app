@@ -20,7 +20,7 @@ app.use("/api/chat", chatRouter);
 app.use("/api/message", authMiddleware, messageRouter);
 app.use(notFoundMiddleware);
 
-const server = app.listen(process.env.PORT, async () => {
+const server = app.listen(process.env.PORT || 8000, async () => {
   connection();
 });
 

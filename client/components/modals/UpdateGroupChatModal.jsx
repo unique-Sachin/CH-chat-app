@@ -44,7 +44,7 @@ const UpdateGroupChatModal = ({ children, handleFetchMessages }) => {
     } else {
       try {
         const { data } = await axios.put(
-          `https://sandesh-app-server.adaptable.app/api/chat/grouprename`,
+          `https://ch-chat-app-production.up.railway.app/api/chat/grouprename`,
           {
             chatName: groupChatName,
             chatId: selectedChat._id,
@@ -78,7 +78,7 @@ const UpdateGroupChatModal = ({ children, handleFetchMessages }) => {
     try {
       setLoading(true);
       const { data } = await axios.get(
-        `https://sandesh-app-server.adaptable.app/api?search=${input}`
+        `https://ch-chat-app-production.up.railway.app/api?search=${input}`
       );
       setSearchResults(data);
       setLoading(false);
@@ -106,7 +106,7 @@ const UpdateGroupChatModal = ({ children, handleFetchMessages }) => {
     } else {
       try {
         const { data } = await axios.put(
-          `https://sandesh-app-server.adaptable.app/api/chat/groupremove`,
+          `https://ch-chat-app-production.up.railway.app/api/chat/groupremove`,
           { chatId: selectedChat._id, userId: id }
         );
         if (id === user.id) {
@@ -158,7 +158,7 @@ const UpdateGroupChatModal = ({ children, handleFetchMessages }) => {
     } else {
       try {
         const { data } = await axios.put(
-          `https://sandesh-app-server.adaptable.app/api/chat/groupadd`,
+          `https://ch-chat-app-production.up.railway.app/api/chat/groupadd`,
           { chatId: selectedChat._id, userId: adduser._id }
         );
         dispatch(setSelectedChat(data));

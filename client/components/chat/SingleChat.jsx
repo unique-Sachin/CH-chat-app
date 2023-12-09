@@ -14,7 +14,7 @@ import { ImAttachment } from "react-icons/im";
 import { io } from "socket.io-client";
 import VideoChat from "../videocall/VideoChat";
 
-const ENDPOINT = "http://localhost:4500";
+const ENDPOINT = "https://ch-chat-app-production.up.railway.app";
 
 var socket, selectedChatCompare;
 
@@ -44,7 +44,7 @@ const SingleChat = () => {
 
       try {
         const { data } = await axios.post(
-          `https://sandesh-app-server.adaptable.app/api/message`,
+          `https://ch-chat-app-production.up.railway.app/api/message`,
           {
             content: newMsg,
             chatId: selectedChat._id,
@@ -72,7 +72,7 @@ const SingleChat = () => {
       try {
         setloading(true);
         const { data } = await axios.get(
-          `https://sandesh-app-server.adaptable.app/api/message/${selectedChat._id}`
+          `https://ch-chat-app-production.up.railway.app/api/message/${selectedChat._id}`
         );
         setMessages(data);
         setloading(false);

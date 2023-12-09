@@ -21,7 +21,7 @@ const MyChats = () => {
   const fetchChats = async () => {
     try {
       const { data } = await axios.get(
-        `https://sandesh-app-server.adaptable.app/api/chat`
+        `https://ch-chat-app-production.up.railway.app/api/chat`
       );
       dispatch(setChats(data));
     } catch (error) {
@@ -48,7 +48,7 @@ const MyChats = () => {
       try {
         setLoading(true);
         const { data } = await axios.get(
-          `https://sandesh-app-server.adaptable.app/api?search=${input}`
+          `https://ch-chat-app-production.up.railway.app/api?search=${input}`
         );
         setSearch(data);
         setLoading(false);
@@ -69,7 +69,7 @@ const MyChats = () => {
   const handleAccessChat = async (user) => {
     try {
       const { data } = await axios.post(
-        `https://sandesh-app-server.adaptable.app/api/chat`,
+        `https://ch-chat-app-production.up.railway.app/api/chat`,
         {
           userId: user._id,
         }

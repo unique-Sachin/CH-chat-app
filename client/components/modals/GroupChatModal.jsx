@@ -46,7 +46,7 @@ const GroupChatModal = ({ children }) => {
     } else {
       try {
         const { data } = await axios.post(
-          `https://sandesh-app-server.adaptable.app/api/chat/group`,
+          `https://ch-chat-app-production.up.railway.app/api/chat/group`,
           {
             name: groupChatName,
             users: JSON.stringify(selectedUsers.map((el) => el._id)),
@@ -80,7 +80,7 @@ const GroupChatModal = ({ children }) => {
     try {
       setLoading(true);
       const { data } = await axios.get(
-        `https://sandesh-app-server.adaptable.app/api?search=${input}`
+        `https://ch-chat-app-production.up.railway.app/api?search=${input}`
       );
       setSearchResults(data);
       setLoading(false);
