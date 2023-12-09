@@ -19,6 +19,7 @@ import {
 import UserBadgeItem from "../user/UserBadgeItem";
 import axios from "axios";
 import UserList from "../user/UserList";
+import { api_host } from "../../constants";
 
 const UpdateGroupChatModal = ({ children, handleFetchMessages }) => {
   const { chat, user } = useSelector((state) => state);
@@ -43,13 +44,10 @@ const UpdateGroupChatModal = ({ children, handleFetchMessages }) => {
       });
     } else {
       try {
-        const { data } = await axios.put(
-          `https://ch-chat-app-production.up.railway.app/api/chat/grouprename`,
-          {
-            chatName: groupChatName,
-            chatId: selectedChat._id,
-          }
-        );
+        const { data } = await axios.put(`${api_host}/api/chat/grouprename`, {
+          chatName: groupChatName,
+          chatId: selectedChat._id,
+        });
         dispatch(setSelectedChat(data));
         dispatch(setFetchChat(!fetchChat));
         setGroupChatName("");
@@ -77,9 +75,7 @@ const UpdateGroupChatModal = ({ children, handleFetchMessages }) => {
     if (!input) return;
     try {
       setLoading(true);
-      const { data } = await axios.get(
-        `https://ch-chat-app-production.up.railway.app/api?search=${input}`
-      );
+      const { data } = await axios.get(`${api_host}/api?search=${input}`);
       setSearchResults(data);
       setLoading(false);
     } catch (error) {
@@ -105,10 +101,10 @@ const UpdateGroupChatModal = ({ children, handleFetchMessages }) => {
       return;
     } else {
       try {
-        const { data } = await axios.put(
-          `https://ch-chat-app-production.up.railway.app/api/chat/groupremove`,
-          { chatId: selectedChat._id, userId: id }
-        );
+        const { data } = await axios.put(`${api_host}/api/chat/groupremove`, {
+          chatId: selectedChat._id,
+          userId: id,
+        });
         if (id === user.id) {
           dispatch(setSelectedChat({}));
           handleFetchMessages();
@@ -157,10 +153,10 @@ const UpdateGroupChatModal = ({ children, handleFetchMessages }) => {
       return;
     } else {
       try {
-        const { data } = await axios.put(
-          `https://ch-chat-app-production.up.railway.app/api/chat/groupadd`,
-          { chatId: selectedChat._id, userId: adduser._id }
-        );
+        const { data } = await axios.put(`${api_host}/api/chat/groupadd`, {
+          chatId: selectedChat._id,
+          userId: adduser._id,
+        });
         dispatch(setSelectedChat(data));
         dispatch(setFetchChat(!fetchChat));
         setSearchResults([]);

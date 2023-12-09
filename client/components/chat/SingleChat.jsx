@@ -13,8 +13,9 @@ import { BiDotsVertical } from "react-icons/bi";
 import { ImAttachment } from "react-icons/im";
 import { io } from "socket.io-client";
 import VideoChat from "../videocall/VideoChat";
+import { api_host } from "../../constants";
 
-const ENDPOINT = "https://ch-chat-app-production.up.railway.app";
+const ENDPOINT = api_host;
 
 var socket, selectedChatCompare;
 
@@ -43,13 +44,10 @@ const SingleChat = () => {
       socket.on("stop typing", () => setIsTyping(false));
 
       try {
-        const { data } = await axios.post(
-          `https://ch-chat-app-production.up.railway.app/api/message`,
-          {
-            content: newMsg,
-            chatId: selectedChat._id,
-          }
-        );
+        const { data } = await axios.post(`${api_host}/api/message`, {
+          content: newMsg,
+          chatId: selectedChat._id,
+        });
         setMessages([...messages, data]);
         socket.emit("new message", data);
         setNewMsg("");
@@ -72,7 +70,7 @@ const SingleChat = () => {
       try {
         setloading(true);
         const { data } = await axios.get(
-          `https://ch-chat-app-production.up.railway.app/api/message/${selectedChat._id}`
+          `${api_host}/api/message/${selectedChat._id}`
         );
         setMessages(data);
         setloading(false);

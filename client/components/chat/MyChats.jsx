@@ -7,6 +7,7 @@ import { chatSlice } from "../../store/slices/chatSlice";
 import Image from "next/image";
 import ChatLoading from "./ChatLoading";
 import UserList from "../user/UserList";
+import { api_host } from "../../constants";
 
 const MyChats = () => {
   const { chat, user } = useSelector((state) => state);
@@ -21,7 +22,7 @@ const MyChats = () => {
   const fetchChats = async () => {
     try {
       const { data } = await axios.get(
-        `https://ch-chat-app-production.up.railway.app/api/chat`
+        `${api_host}/api/chat`
       );
       dispatch(setChats(data));
     } catch (error) {
@@ -48,7 +49,7 @@ const MyChats = () => {
       try {
         setLoading(true);
         const { data } = await axios.get(
-          `https://ch-chat-app-production.up.railway.app/api?search=${input}`
+          `${api_host}/api?search=${input}`
         );
         setSearch(data);
         setLoading(false);
@@ -69,7 +70,7 @@ const MyChats = () => {
   const handleAccessChat = async (user) => {
     try {
       const { data } = await axios.post(
-        `https://ch-chat-app-production.up.railway.app/api/chat`,
+        `${api_host}/api/chat`,
         {
           userId: user._id,
         }

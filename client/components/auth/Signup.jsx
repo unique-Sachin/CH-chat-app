@@ -14,6 +14,7 @@ import {
 } from "@chakra-ui/react";
 import axios from "axios";
 import React, { useState } from "react";
+import { api_host } from "../../constants";
 
 const Signup = () => {
   const toast = useToast();
@@ -50,7 +51,7 @@ const Signup = () => {
           gender: input.gender,
         };
         const res = await axios.post(
-          `https://ch-chat-app-production.up.railway.app/api/register`,
+          `${api_host}/api/register`,
           value
         );
         setLoading(false);

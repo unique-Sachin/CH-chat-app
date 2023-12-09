@@ -5,8 +5,9 @@ import Options from "./Options";
 import Notifications from "./Notifications";
 import Peer from "simple-peer";
 import { io } from "socket.io-client";
+import { api_host } from "../../constants";
 
-const socket = io("https://localhost:4500");
+const socket = io(api_host);
 
 const VideoChat = ({ videoCallToggle, setVideoCallToggle }) => {
   const [stream, setStream] = useState(null);

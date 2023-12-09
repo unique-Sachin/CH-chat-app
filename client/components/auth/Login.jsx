@@ -14,6 +14,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { userSlice } from "../../store/slices/userSlice";
 import { useRouter } from "next/router";
+import { api_host } from "../../constants";
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -48,7 +49,7 @@ const Login = () => {
           password: input.password,
         };
         const res = await axios.post(
-          `https://ch-chat-app-production.up.railway.app/api/login`,
+          `${api_host}/api/login`,
           value
         );
         setLoading(false);

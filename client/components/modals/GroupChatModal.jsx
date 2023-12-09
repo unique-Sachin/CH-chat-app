@@ -21,6 +21,7 @@ import { chatSlice } from "../../store/slices/chatSlice";
 import axios from "axios";
 import UserList from "../user/UserList";
 import UserBadgeItem from "../user/UserBadgeItem";
+import { api_host } from "../../constants";
 
 const GroupChatModal = ({ children }) => {
   const { chat } = useSelector((state) => state);
@@ -45,13 +46,10 @@ const GroupChatModal = ({ children }) => {
       });
     } else {
       try {
-        const { data } = await axios.post(
-          `https://ch-chat-app-production.up.railway.app/api/chat/group`,
-          {
-            name: groupChatName,
-            users: JSON.stringify(selectedUsers.map((el) => el._id)),
-          }
-        );
+        const { data } = await axios.post(`${api_host}/api/chat/group`, {
+          name: groupChatName,
+          users: JSON.stringify(selectedUsers.map((el) => el._id)),
+        });
         dispatch(setChats([data, ...chats]));
         setSelectedUsers([]);
         setSearchResults([]);
@@ -79,9 +77,7 @@ const GroupChatModal = ({ children }) => {
     if (!input) return;
     try {
       setLoading(true);
-      const { data } = await axios.get(
-        `https://ch-chat-app-production.up.railway.app/api?search=${input}`
-      );
+      const { data } = await axios.get(`${api_host}/api?search=${input}`);
       setSearchResults(data);
       setLoading(false);
     } catch (error) {
