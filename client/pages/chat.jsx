@@ -24,7 +24,7 @@ const Chat = () => {
     user?.token && (
       <div className={styles.main__container}>
         <Navbar />
-        <SocketWarning />
+        {/* <SocketWarning /> */}
         <div className={styles.chat__container}>
           <MyChats />
           <SingleChat />
